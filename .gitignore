@@ -2,7 +2,9 @@
 *.pyc
 
 build
+dist
 Framework
+bundle/Contents/env
 
 # files generated from templates/
 bundle/Contents/Info.plist

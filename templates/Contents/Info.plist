@@ -19,7 +19,7 @@
     <key>PlexPluginMode</key>
     <string>AlwaysOn</string>
     <key>PlexFrameworkVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>PlexPluginDebug</key>
     <string><%= PLIST_DEBUG %></string>
     <key>PlexPluginDevMode</key>

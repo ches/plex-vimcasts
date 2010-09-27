@@ -1,0 +1,43 @@
+# Plugin configuration
+#
+# This configuration setup allows for easy, environment-specific configuration.
+# Its settings can be inserted into other files at build-time, or loaded by
+# python code at run-time with PyYAML.
+
+# Default settings. This is never read directly. Instead, it's extended by
+# other sections below.
+default: &default
+  PLUGIN_ID:          com.plexapp.plugins.vimcasts
+  PLUGIN_NAME:        Vimcasts
+  PLUGIN_PREFIX:      /video/vimcasts
+  PLUGIN_VERSION:     0.9.0
+  PLUGIN_AUTHOR:      Ches Martin <ches@whiskeyandgrits.net>
+  PLUGIN_DESCRIPTION: |
+    Vimcasts publishes regular screencasts about the Vim text editor. Episodes
+    are kept short – typically less than 5 minutes, never more than 10. The aim
+    is to provide something in each episode that you can take away and use.
+    
+    Vimcasts is produced by Drew Neil (aka nelstrom).
+
+  VERSION_IN_PLUGIN_NAME: false
+
+  CACHE_TTL: 3600
+
+  PLIST_DEBUG: 0
+  PLIST_DEV_MODE: 0
+
+# override some values when building a dev release
+development:
+  <<: *default
+  VERSION_IN_PLUGIN_NAME: true
+
+  # disable caching
+  CACHE_TTL: 0
+
+  # turn on dev mode (no auto-updates), and debug
+  PLIST_DEBUG: 1
+  PLIST_DEV_MODE: 1
+
+# release version inherits defaults
+release:
+  <<: *default

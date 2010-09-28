@@ -5,6 +5,12 @@ Plex-Vimcasts
 A simple Plex_ plugin for vimcasts.org_, allowing you to view the
 screencasts from the comfort of your media center.
 
+Installation
+============
+
+Assuming you already have a working Plex installation, grab the latest release
+from `the downloads`_ and double-click to install.
+
 Building From Source
 ====================
 
@@ -48,6 +54,7 @@ This, my first Plex plugin, is essentially a bunch of copy and paste!
 
 .. _Plex: http://plexapp.com/
 .. _vimcasts.org: http://vimcasts.org/
+.. _the downloads: http://github.com/ches/plex-vimcasts/downloads
 .. _Git: http://code.google.com/p/git-osx-installer/downloads/list?can=3
 .. _Ruby: http://www.ruby-lang.org/
 .. _Rake: http://rake.rubyforge.org/

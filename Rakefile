@@ -236,8 +236,8 @@ namespace :install do
     add_env_file :release, PLUGIN_BUNDLE_DIR
   end
 end
-desc 'Alias for install:development'
-task :install => 'install:development'
+desc 'Alias for install:release'
+task :install => 'install:release'
 
 namespace :uninstall do
   desc 'Remove the installed bundle, but leave data behind.'

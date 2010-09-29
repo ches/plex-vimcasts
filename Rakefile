@@ -224,7 +224,7 @@ namespace :install do
 
   desc 'Install a development version of the plugin'
   task :development => [ 'build:development', :uninstall ] do
-    ln_s(PLUGIN_BUNDLE_DIR, PMS_PLUGIN_DIR + bundle_name(config(:development)))
+    ln_sf(PLUGIN_BUNDLE_DIR, PMS_PLUGIN_DIR + bundle_name(config(:development)))
     add_env_file :development, PLUGIN_BUNDLE_DIR
   end
   task :dev => :development

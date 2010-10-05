@@ -35,7 +35,7 @@ Or, ``rake uninstall:hard`` to uninstall the plugin *and* it's preferences and d
 To Do
 =====
 
-- Proper plugin artwork, instead of stealing Railscasts'
+- More reliable method of finding episode thumbnails
 
 License
 =======

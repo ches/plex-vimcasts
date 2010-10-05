@@ -10,7 +10,7 @@ default: &default
   PLUGIN_ID:          com.plexapp.plugins.vimcasts
   PLUGIN_NAME:        Vimcasts
   PLUGIN_PREFIX:      /video/vimcasts
-  PLUGIN_VERSION:     0.9.0
+  PLUGIN_VERSION:     0.9.1
   PLUGIN_AUTHOR:      Ches Martin <ches@whiskeyandgrits.net>
   PLUGIN_DESCRIPTION: |
     Vimcasts publishes regular screencasts about the Vim text editor. Episodes

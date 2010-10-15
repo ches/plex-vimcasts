@@ -10,7 +10,6 @@ require 'tempfile'
 require 'yaml'
 
 require 'rubygems'
-require 'appscript'
 
 # Base Paths
 PLUGIN_ROOT         = Pathname.new(File.dirname(__FILE__)).expand_path
@@ -152,6 +151,7 @@ task :build => 'build:development'
 
 namespace :package do
   def package(config)
+    require 'appscript'
     File.rm_if_exists PLUGIN_DIST_DIR
     mkdir_p PLUGIN_DIST_DIR
 
@@ -202,6 +202,7 @@ namespace :package do
     package config(:release)
   end
 end
+desc 'Alias for package:release'
 task :package => 'package:release'
 
 namespace :pms do

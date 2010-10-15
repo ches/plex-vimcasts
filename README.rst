@@ -14,11 +14,11 @@ from `the downloads`_ and double-click to install.
 Building From Source
 ====================
 
-The Plex-Vimcasts_ plugin bundle is built from files in the ``bundle/`` and ``templates/`` directories. To build the bundle you'll need:
+The Plex-Vimcasts_ plugin bundle is built from files in the ``bundle/`` and
+``templates/`` directories. To build the bundle you'll need:
 
 - Git_
 - Ruby_ & Rake_ (Both are bundled with OS X)
-- The rb-appscript_ RubyGem (``gem install rb-appscript``)
 
 With those tools installed, get a copy of the source and install the plugin::
 
@@ -31,6 +31,14 @@ If you'd like to remove the plugin later, use::
     $ rake uninstall
 
 Or, ``rake uninstall:hard`` to uninstall the plugin *and* it's preferences and data.
+
+If you wish to package your own double-clickable plugin installer, you'll need
+two additional build dependencies:
+
+- The `Plex App Maker`_
+- The rb-appscript_ RubyGem (``gem install rb-appscript``)
+
+Then, just run ``rake package`` and check the ``dist`` directory.
 
 To Do
 =====
@@ -58,6 +66,7 @@ This, my first Plex plugin, is essentially a bunch of copy and paste!
 .. _Git: http://code.google.com/p/git-osx-installer/downloads/list?can=3
 .. _Ruby: http://www.ruby-lang.org/
 .. _Rake: http://rake.rubyforge.org/
+.. _Plex App Maker: http://forums.plexapp.com/index.php?/topic/10180-plex-app-maker/
 .. _rb-appscript: http://appscript.sourceforge.net/rb-appscript/index.html
 .. _Railscasts plugin: http://github.com/leathekd/plex_railscasts_plugin
 .. _MLB plugin: http://github.com/rfletcher/plex-mlb

@@ -40,11 +40,6 @@ two additional build dependencies:
 
 Then, just run ``rake package`` and check the ``dist`` directory.
 
-To Do
-=====
-
-- More reliable method of finding episode thumbnails
-
 License
 =======
 
@@ -53,7 +48,8 @@ Under the same terms as Plex, GPLv2.
 Thanks
 ======
 
-This, my first Plex plugin, is essentially a bunch of copy and paste!
+This, my first Plex plugin, began as a bunch of copy and paste! (Please Plex,
+update the documentation for plugin developers one of these days...).
 
 - Basically a clone of David Leatherman's `Railscasts plugin`_.
 - Rake build script cribbed from Rick Fletcher's `MLB plugin`_. Probably

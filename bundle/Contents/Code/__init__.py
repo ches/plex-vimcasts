@@ -1,9 +1,9 @@
 import htmlentitydefs
 import re
-from urlparse import urlparse
+from datetime import datetime
+from email.utils import parsedate
 
-VIMCASTS_FEED_URL      = 'http://vimcasts.org/feeds/quicktime'
-VIMCASTS_EP_THUMB      = 'http://vimcasts.org/images/posters/%s.png'
+VIMCASTS_FEED_URL      = 'http://vimcasts.org/episodes.json'
 VIMCASTS_ICON          = 'icon-default.png'
 VIMCASTS_ART           = 'art-default.png'
 
@@ -17,22 +17,21 @@ def Start():
 @handler('/video/vimcasts', L('vimcasts'))
 def VideoMenu():
     dir = MediaContainer(mediaType='video', viewGroup='Details')
-    feed_items = XML.ElementFromURL(VIMCASTS_FEED_URL).xpath('//item')
-    for item in feed_items:
+    episodes = JSON.ObjectFromURL(VIMCASTS_FEED_URL)['episodes']
+    episodes.reverse()  # Newest first
+    for episode in episodes:
         try:
-            url = item.find('enclosure').get('url')
+            url     = episode['quicktime']['url']
+            title   = F('episode', episode['episode_number'], episode['title'])
+            date    = parsedate(episode['published_at'])
+            date    = datetime(*date[:6])
+            summary = dehtmlize(episode['abstract'].strip())
+            thumb   = episode['poster']
+            dir.Append(VideoItem(url, title=title, summary=summary, thumb=thumb,
+                                 subtitle=date.strftime('%A, %B %e %Y')))
         except AttributeError:
-            # Probably the feed has an entry without an enclosure
-            pass
-        else:
-            # Example path: /videos/24/vimrc_on_the_fly.m4v
-            path_parts  = urlparse(url).path.split('/')[1:]
-            title       = F('episode', path_parts[1], item.find('title').text)
-            date        = item.find('pubDate').text
-            description = dehtmlize(item.find('description').text.strip())
-            thumb       = VIMCASTS_EP_THUMB % path_parts[-1].split('.')[0]
-            dir.Append(VideoItem(url, title=title, summary=description,
-                                 subtitle=date[0:-15], thumb=thumb))
+            Log("Something odd with episode, skipping: %s" %
+                    episode, debugOnly=False)
     return dir
 
 ##

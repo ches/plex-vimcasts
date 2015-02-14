@@ -8,11 +8,17 @@ screencasts from the comfort of your media center.
 Installation
 ============
 
-Assuming you already have a working Plex installation, grab the latest release
-from `the downloads`_ and double-click to install.
+The plugin is accepted in Plex's official channel directory—just browse the
+Channel Directory section in the Plex Home Theater app and you can install it
+from there.
 
 Building From Source
 ====================
+
+If you want to hack on the plugin, this should get you going. Pull requests
+are welcome, I'll try to get enhancements upstreamed to Plex, but the plugin
+submission process is not self-service and to be honest isn't very transparent,
+so it may take some time.
 
 The Plex-Vimcasts_ plugin bundle is built from files in the ``bundle/`` and
 ``templates/`` directories. To build the bundle you'll need:
